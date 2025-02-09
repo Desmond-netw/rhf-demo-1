@@ -33,7 +33,7 @@ export const MyForm_Example = () => {
     <input .... id="firstname" name={name} ref ={ref} onChange={onChange} onBlur={onBlur} />
 
     # at the end of your form element </form> add the follwing code
-    <Devtool control = {control}>;
+    <Devtool control = {control}/>;
     </>
 }
 
