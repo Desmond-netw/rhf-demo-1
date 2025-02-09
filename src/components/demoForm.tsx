@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import { useRef } from "react";
 import "../index.css";
 
-let readerCount = 0;
-
-// form values type
+// type of form value
 type formValues = {
   firstname: string;
   lastname: string;
@@ -15,41 +14,41 @@ type formValues = {
 export const DemoForm = () => {
   const form = useForm<formValues>();
   const { register, control, handleSubmit } = form;
-
-  // on submit function
+  // form functiont to log data
   const onSubmit = (data: formValues) => {
-    console.log("Form Submited", data);
+    console.log("FOrm submited", data);
   };
 
-  readerCount++;
+  const readerCount = useRef(0);
+  readerCount.current++;
   return (
     <>
       <div className=" w-100vw h-100vh flex justify-center py-5 align-middle my-0 mx-auto ">
         <div className=" w-6/12 h-auto flex flex-col justify-center align-middle py-5 gap-3 px-3 text-white bg-slate-900">
-          <h1 className="text-3xl">Demo Form Count ({readerCount / 2}) </h1>
+          <h1 className="text-3xl">Demo Form Count ({readerCount.current}) </h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className=" w-auto flex flex-col gap-5"
           >
-            <div className=" w-full flex flex-row  gap-4 ">
+            <div className=" w-full flex  gap-4 ">
               {/* first name */}
-              <div className="w-auto flex flex-col gap-2">
+              <div className="w-full flex flex-col gap-2">
                 <label htmlFor="firstName">First Name</label>
                 <input
                   type="text"
                   placeholder="FIrst name"
-                  className="enabled:border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
+                  className=" enabled:border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
                   id="firstName"
                   {...register("firstname")}
                 />
               </div>
               {/* last name */}
-              <div className="w-auto flex flex-col gap-2">
+              <div className="w-full flex flex-col gap-2">
                 <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
                   placeholder="Last name"
-                  className="enabled:border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
+                  className=" enabled:border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
                   id="lastName"
                   {...register("lastname")}
                 />
