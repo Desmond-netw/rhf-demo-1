@@ -1,7 +1,10 @@
-import React from "react";
+import { useForm } from "react-hook-form";
 import "../index.css";
 
 export const DemoForm = () => {
+  const form = useForm();
+  const { register } = form;
+
   return (
     <>
       <div className=" w-100vw h-100vh flex justify-center align-middle my-0 mx-auto ">
@@ -16,7 +19,7 @@ export const DemoForm = () => {
                   placeholder="FIrst name"
                   className="enabled:border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
                   id="firstName"
-                  name="firstname"
+                  {...register("firstname")}
                 />
               </div>
               {/* last name */}
@@ -27,7 +30,7 @@ export const DemoForm = () => {
                   placeholder="Last name"
                   className="enabled:border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
                   id="lastName"
-                  name="lastname"
+                  {...register("lastname")}
                 />
               </div>
             </div>
@@ -39,7 +42,7 @@ export const DemoForm = () => {
                 placeholder="email here"
                 className=" w-full enabled:border-gray-200 disabled:opacity-70 p-2 rounded-md text-slate-900 bg-slate-100"
                 id="email"
-                name="email"
+                {...register("email")}
               />
             </div>
             {/* subject bx */}
@@ -50,11 +53,11 @@ export const DemoForm = () => {
                 placeholder="email here"
                 className=" enabled:border-gray-200 disabled:opacity-70 rounded-md p-2 text-slate-900 bg-slate-100"
                 id="email"
-                name="email"
+                {...register("subject")}
               />
             </div>
             {/* button */}
-            <div className="w-24">
+            <div className="w-30">
               <input
                 type="submit"
                 value="Send"
