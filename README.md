@@ -1,4 +1,4 @@
-# React Hook Form Demo
+# React Hook Form Demo = Personal Note keeping
 
 after configuring the dev Environment , make sure to cd <working folder> and run the comman below:
 
@@ -38,3 +38,10 @@ export const MyForm_Example = () => {
 }
 
 ```
+
+The devtool should be visible on the browser where your have your code runing. Check the top-right-coner of the screen.
+
+- click on expand
+  Tourched: means the filed as been interacted with either truel or false
+  DIrty: means the filed has no value
+  NOw try entering data into the form to see the real time changes
