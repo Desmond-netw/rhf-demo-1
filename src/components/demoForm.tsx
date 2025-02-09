@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 import "../index.css";
 
 export const DemoForm = () => {
   const form = useForm();
-  const { register } = form;
+  const { register, control } = form;
 
   return (
     <>
-      <div className=" w-100vw h-100vh flex justify-center align-middle my-0 mx-auto ">
-        <div className=" w-6/12 flex justify-center text-white bg-slate-900">
+      <div className=" w-100vw h-100vh flex justify-center py-5 align-middle my-0 mx-auto ">
+        <div className=" w-6/12 h-auto flex justify-center align-middle py-5 text-white bg-slate-900">
           <form className=" w-auto flex flex-col gap-5">
             <div className=" flex  gap-4 ">
               {/* first name */}
@@ -65,6 +66,7 @@ export const DemoForm = () => {
               />
             </div>
           </form>
+          <DevTool control={control} />
         </div>
       </div>
     </>
