@@ -2,16 +2,36 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import "../index.css";
 
-export const DemoForm = () => {
-  const form = useForm();
-  const { register, control } = form;
+let readerCount = 0;
 
+// form values type
+type formValues = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  subject: string;
+};
+
+export const DemoForm = () => {
+  const form = useForm<formValues>();
+  const { register, control, handleSubmit } = form;
+
+  // on submit function
+  const onSubmit = (data: formValues) => {
+    console.log("Form Submited", data);
+  };
+
+  readerCount++;
   return (
     <>
       <div className=" w-100vw h-100vh flex justify-center py-5 align-middle my-0 mx-auto ">
-        <div className=" w-6/12 h-auto flex justify-center align-middle py-5 text-white bg-slate-900">
-          <form className=" w-auto flex flex-col gap-5">
-            <div className=" flex  gap-4 ">
+        <div className=" w-6/12 h-auto flex flex-col justify-center align-middle py-5 gap-3 px-3 text-white bg-slate-900">
+          <h1 className="text-3xl">Demo Form Count ({readerCount / 2}) </h1>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className=" w-auto flex flex-col gap-5"
+          >
+            <div className=" w-full flex flex-row  gap-4 ">
               {/* first name */}
               <div className="w-auto flex flex-col gap-2">
                 <label htmlFor="firstName">First Name</label>
