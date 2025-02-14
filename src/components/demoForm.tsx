@@ -12,7 +12,8 @@ type formData = {
 
 export const DemoForm = () => {
   const form = useForm<formData>();
-  const { register, handleSubmit, control } = form;
+  const { register, handleSubmit, control, formState } = form;
+  const { errors } = formState;
 
   //count
   const renderCounter = useRef(0);
@@ -47,6 +48,7 @@ export const DemoForm = () => {
                     required: "firstname is required",
                   })}
                 />
+                <p className="text-red-400">{errors.firstname?.message}</p>
               </div>
               {/* last name */}
               <div className="w-full flex flex-col gap-2">
@@ -78,6 +80,7 @@ export const DemoForm = () => {
                 })}
               />
             </div>
+            <p>{errors.email?.message}</p>
             {/* subject bx */}
             <div className="w-auto flex flex-col gap-2">
               <label htmlFor="email"> Subjects</label>
