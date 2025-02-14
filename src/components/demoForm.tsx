@@ -31,6 +31,7 @@ export const DemoForm = () => {
           </h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
+            noValidate
             className=" w-auto flex flex-col gap-5"
           >
             <div className=" w-full flex  gap-4 ">
@@ -42,7 +43,9 @@ export const DemoForm = () => {
                   placeholder="FIrst name"
                   className="border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
                   id="firstName"
-                  {...register("firstname")}
+                  {...register("firstname", {
+                    required: "firstname is required",
+                  })}
                 />
               </div>
               {/* last name */}
