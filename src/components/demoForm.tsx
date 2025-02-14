@@ -68,7 +68,12 @@ export const DemoForm = () => {
                 placeholder="email here"
                 className=" w-full enabled:border-gray-200 disabled:opacity-70 p-2 rounded-md text-slate-900 bg-slate-100"
                 id="email"
-                {...register("email", { required: "Email is required" })}
+                {...register("email", {
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Email is not valid",
+                  },
+                })}
               />
             </div>
             {/* subject bx */}

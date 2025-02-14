@@ -29,7 +29,7 @@ export const MyForm_Example = () => {
 
     return
     <>
-    .........
+    # your lines of form cord here
     <input .... id="firstname" name={name} ref ={ref} onChange={onChange} onBlur={onBlur} />
 
     # at the end of your form element </form> add the follwing code
@@ -39,9 +39,20 @@ export const MyForm_Example = () => {
 
 ```
 
-The devtool should be visible on the browser where your have your code runing. Check the top-right-coner of the screen.
+The devtool should be visible on the browser where your have your code runing. Check the top-right-conner of the screen.
 
 - click on expand
   Tourched: means the filed as been interacted with either truel or false
   DIrty: means the filed has no value
   NOw try entering data into the form to see the real time changes
+
+## React Form Validation
+
+- Email patern use the following code in form patern validations.
+
+```bash
+pattern: {
+  alue: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+  message: "invalid email address"
+   }
+```
