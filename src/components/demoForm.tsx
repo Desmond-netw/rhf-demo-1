@@ -68,7 +68,7 @@ export const DemoForm = () => {
                 placeholder="email here"
                 className=" w-full enabled:border-gray-200 disabled:opacity-70 p-2 rounded-md text-slate-900 bg-slate-100"
                 id="email"
-                {...register("email")}
+                {...register("email", { required: "Email is required" })}
               />
             </div>
             {/* subject bx */}
