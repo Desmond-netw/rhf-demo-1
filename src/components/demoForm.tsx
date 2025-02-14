@@ -56,7 +56,9 @@ export const DemoForm = () => {
                   placeholder="Last name"
                   className="border-gray-400 disabled:opacity-75 rounded-md text-slate-900 p-2 bg-slate-100"
                   id="lastName"
-                  {...register("lastname")}
+                  {...register("lastname", {
+                    required: { value: true, message: "LastName Required" },
+                  })}
                 />
               </div>
             </div>
