@@ -62,6 +62,7 @@ export const DemoForm = () => {
                     required: { value: true, message: "LastName Required" },
                   })}
                 />
+                <p className="text-red-400">{errors.lastname?.message}</p>
               </div>
             </div>
             {/* email box */}
